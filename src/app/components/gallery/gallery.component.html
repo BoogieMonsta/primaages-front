@@ -1,0 +1,10 @@
+<section id="gallery-container">
+  <!-- TODO: ngFor to display all images by default -->
+  <div *ngFor="let image of images" class="img-wrapper">
+    <img
+      src="{{ image.image }}"
+      width="{{ image.metadata.width }}"
+      alt="food-photo"
+    />
+  </div>
+</section>
