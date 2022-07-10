@@ -22,8 +22,13 @@ a {
 }
 
 input {
-    padding: 1em;
-    border: none;
-    border-radius: 0.33em;
-    min-width: 33vw;
+  padding: 1em;
+  border: none;
+  border-radius: 0.33em;
+  min-width: 33vw;
+}
+
+h2 {
+    font-size: 2em;
+    margin-top: 0;
 }
