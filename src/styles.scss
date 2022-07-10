@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;900&display=swap");
 body {
-  background: rgb(222, 228, 235);
+  //   background: rgb(222, 228, 235);
+  background: linear-gradient(rgb(190, 201, 215), rgb(152, 195, 193));
   font-family: "Playfair Display", serif;
   color: rgb(40, 40, 40);
   height: 100vh;
@@ -25,10 +26,9 @@ input {
   padding: 1em;
   border: none;
   border-radius: 0.33em;
-  min-width: 33vw;
 }
 
 h2 {
-    font-size: 2em;
-    margin-top: 0;
+  font-size: 2em;
+  margin-top: 0;
 }

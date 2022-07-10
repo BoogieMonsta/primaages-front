@@ -1,13 +1,33 @@
 <section class="login-container">
   <h2>Login</h2>
   <form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()">
+    <p [ngClass]="{ 'has-error': isSubmitted && formControls['name'].errors }">
+      <input
+        class="login-form-field"
+        type="name"
+        placeholder="name"
+        formControlName="name"
+      />
+    </p>
+
+    <div *ngIf="isSubmitted && formControls['name'].errors" class="help-block">
+      <div *ngIf="formControls['name'].errors['required']">
+        <font color="red">Name is required</font>
+      </div>
+    </div>
+
     <p [ngClass]="{ 'has-error': isSubmitted && formControls['email'].errors }">
-      <input type="email" placeholder="e-mail" formControlName="email" />
+      <input
+        class="login-form-field"
+        type="email"
+        placeholder="e-mail"
+        formControlName="email"
+      />
     </p>
 
     <div *ngIf="isSubmitted && formControls['email'].errors" class="help-block">
       <div *ngIf="formControls['email'].errors['required']">
-        <font color="red">Email is required</font>
+        <font color="red">e-mail is required</font>
       </div>
     </div>
 
@@ -17,6 +37,7 @@
       }"
     >
       <input
+        class="login-form-field"
         type="password"
         placeholder="password"
         formControlName="password"
@@ -28,7 +49,7 @@
       class="help-block"
     >
       <div *ngIf="formControls['password'].errors['required']">
-        <font color="red">Password is required</font>
+        <font color="red">password is required</font>
       </div>
     </div>
 
