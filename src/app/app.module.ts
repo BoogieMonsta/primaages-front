@@ -9,7 +9,12 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { TitleComponent } from './components/title/title.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginComponent, GalleryComponent, TitleComponent],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    GalleryComponent,
+    TitleComponent,
+  ],
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],

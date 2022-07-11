@@ -3,7 +3,7 @@
   <div *ngFor="let image of images" class="img-wrapper">
     <img
       src="{{ image.image }}"
-      width="{{ image.metadata.width }}"
+      width="{{ image.metadata.width / 3 }}"
       alt="food-photo"
     />
   </div>
