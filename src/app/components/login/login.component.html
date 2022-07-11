@@ -1,14 +1,14 @@
 <section class="login-container">
   <h2>Login</h2>
   <form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()">
-    <p [ngClass]="{ 'has-error': isSubmitted && formControls['name'].errors }">
+    <!-- <p [ngClass]="{ 'has-error': isSubmitted && formControls['name'].errors }">
       <input
         class="login-form-field"
         type="name"
         placeholder="name"
         formControlName="name"
       />
-    </p>
+    </p> -->
 
     <div *ngIf="isSubmitted && formControls['name'].errors" class="help-block">
       <div *ngIf="formControls['name'].errors['required']">
