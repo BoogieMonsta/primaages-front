@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { GalleryComponent } from './components/gallery/gallery.component';
 import { TitleComponent } from './components/title/title.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { TitleComponent } from './components/title/title.component';
     LoginComponent,
     GalleryComponent,
     TitleComponent,
+    RegisterComponent,
   ],
   imports: [BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule, AppRoutingModule, ToastrModule.forRoot(), ToastNoAnimationModule.forRoot() ],
   providers: [],

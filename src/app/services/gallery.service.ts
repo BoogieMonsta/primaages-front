@@ -40,7 +40,7 @@ export class GalleryService {
           observer.complete();
         },
         error: (error) => {
-          this.toastr.error('Error: could not get images.');
+          this.toastr.error('Error: could not load images.');
           observer.complete();
         },
       });

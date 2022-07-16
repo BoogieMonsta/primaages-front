@@ -32,11 +32,16 @@ export class LoginComponent implements OnInit {
   login() {
     this.isSubmitted = true;
     if (this.loginForm.invalid) {
-      console.log('the data entered is invalid.');
+      console.error('the data entered is invalid.');
       return;
     }
-    this.authService.login(this.loginForm.value).subscribe(result => {
-      this.router.navigateByUrl('/gallery');
+    this.authService.login(this.loginForm.value).subscribe({
+      next: (res) => {
+        this.router.navigateByUrl('/gallery');
+      },
+      error: (error) => {
+        console.error('login unsuccessful');
+      },
     });
   }
 }

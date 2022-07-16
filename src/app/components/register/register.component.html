@@ -1,9 +1,13 @@
-<section class="login-container">
-  <h2>Login</h2>
-  <form [formGroup]="loginForm" class="login-form" (ngSubmit)="login()">
+<section class="register-container">
+  <h2>Register</h2>
+  <form
+    [formGroup]="registerForm"
+    class="register-form"
+    (ngSubmit)="register()"
+  >
     <p [ngClass]="{ 'has-error': isSubmitted && formControls['email'].errors }">
       <input
-        class="login-form-field"
+        class="register-form-field"
         type="email"
         placeholder="e-mail"
         formControlName="email"
@@ -22,7 +26,7 @@
       }"
     >
       <input
-        class="login-form-field"
+        class="register-form-field"
         type="password"
         placeholder="password"
         formControlName="password"
@@ -38,12 +42,33 @@
       </div>
     </div>
 
+    <p
+      [ngClass]="{
+        'has-error': isSubmitted && formControls['passwordConfirm'].errors
+      }"
+    >
+      <input
+        class="register-form-field"
+        type="password"
+        placeholder="password (confirmation)"
+        formControlName="passwordConfirm"
+      />
+    </p>
+
+    <div
+      *ngIf="isSubmitted && formControls['passwordConfirm'].errors"
+      class="help-block"
+    >
+      <div *ngIf="formControls['passwordConfirm'].errors['required']">
+        <font color="red">password confirmation is required</font>
+      </div>
+    </div>
+
     <p>
       <input type="submit" value="submit" id="submit-btn" />
     </p>
   </form>
   <p>
-    Not registered yet?
-    <a href="/register"><br />Click here to create an account</a>
+    Already have an account? <a href="/login"><br />Click here to login</a>
   </p>
 </section>
