@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent implements OnInit {
-  loginForm!: FormGroup; // circumvent TS strict class checking
+  loginForm!: FormGroup; // definite assignment
   isSubmitted = false;
   constructor(
     private authService: AuthService,
@@ -30,12 +30,13 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log(this.loginForm.value);
     this.isSubmitted = true;
     if (this.loginForm.invalid) {
+      console.log('the data entered is invalid.');
       return;
     }
-    this.authService.login(this.loginForm.value);
-    this.router.navigateByUrl('/gallery');
+    this.authService.login(this.loginForm.value).subscribe(result => {
+      this.router.navigateByUrl('/gallery');
+    });
   }
 }
