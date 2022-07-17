@@ -35,8 +35,6 @@ export class RegisterComponent implements OnInit {
       console.log('the data entered is invalid.');
       return;
     }
-    console.log('registerForm: ', this.registerForm.value);
-
     this.regService.register(this.registerForm.value).subscribe({
       next: (res) => {
         this.router.navigateByUrl('/gallery');

@@ -19,19 +19,16 @@ export class SinglePhotoComponent implements OnInit {
 
   ngOnInit(): void {
     let id = this.route.snapshot.params['id'];
-    console.log('id clicked: ', id);
 
     this.galleryService.getPhotoById(id).subscribe({
       next: (res) => {
         this.photo = res as Photo;
         this.isLoaded = true;
         this.credits = this.photo.metadata.description;
-        console.log(this.photo);
       },
       error: (error) => {
         console.error('error loading single photo');
       },
     });
-    console.log('single photo component loaded.');
   }
 }

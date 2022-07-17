@@ -1,0 +1,19 @@
+button {
+    background-color: rgb(47, 123, 180);
+    transition: background-color 0.5s;
+    color: white;
+    letter-spacing: 1px;
+    font-weight: 500;
+    font-size: 1.3em;
+    cursor: pointer;
+    padding: 0.6em;
+    border: none;
+    border-radius: 2em;
+    width: fit-content;
+    transform: translateY(-20px);
+  }
+  
+  button:hover {
+    background-color: rgb(23, 81, 125);
+    transition: background-color 0.5s;
+  }
