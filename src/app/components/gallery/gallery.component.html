@@ -1,6 +1,5 @@
 <section id="gallery-container">
   <div *ngFor="let photo of photos" class="img-wrapper">
-    <!-- FIXME: child route not working -->
     <a [routerLink]="['/photo/' + photo.id]">
       <img
         src="{{ photo.image }}"
