@@ -1,6 +1,11 @@
-# PrimaagesFront
+# Primaages - Front End
+A simple image gallery app made as a test project with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
+At the top of the backlog:
+- permissions: RouteGuard w/ CanActivate interface
+- image file upload
+- image delete
+- deployment (Heroku + Docker)
 
 ## Development server
 

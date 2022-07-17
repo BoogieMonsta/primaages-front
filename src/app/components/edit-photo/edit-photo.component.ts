@@ -4,6 +4,7 @@ import { Photo } from 'src/app/interfaces/photo.interface';
 import { GalleryService } from 'src/app/services/gallery.service';
 import { omit } from 'lodash';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-edit-photo',
@@ -16,7 +17,8 @@ export class EditPhotoComponent implements OnInit {
   constructor(
     private galleryService: GalleryService,
     private formBuilder: FormBuilder,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -44,9 +46,8 @@ export class EditPhotoComponent implements OnInit {
         .editPhoto(id, omit(img, '__v', '_id', 'id'))
         .subscribe({
           next: (res) => {
-            // TODO: refresh page instead of navigating
-            // TODO: add toast notification
-            this.router.navigateByUrl('/photo/' + res);
+            this.toastr.success('successfully saved!');
+            this.router.navigateByUrl('/gallery');
           },
         });
     });
