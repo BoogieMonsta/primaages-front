@@ -1,6 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;900&display=swap");
 body {
-  background: linear-gradient(rgb(190, 201, 215), rgb(152, 195, 193));
+  background: linear-gradient(
+    rgb(190, 201, 215),
+    rgb(152, 195, 193),
+    rgb(190, 201, 215)
+  );
   font-family: "Playfair Display", serif;
   color: rgb(40, 40, 40);
   height: 100vh;

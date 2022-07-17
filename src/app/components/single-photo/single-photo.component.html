@@ -1,0 +1,14 @@
+<div id="back-section">
+  <button id="back-btn" [routerLink]="['/gallery']">⬅︎ to gallery</button>
+</div>
+<div id="photo-container">
+  <p id="credits">photography {{ credits }}</p>
+  <div id="img-wrapper">
+    <img
+      *ngIf="isLoaded"
+      src="{{ this.photo.image }}"
+      width="65%"
+      alt="food-photo"
+    />
+  </div>
+</div>

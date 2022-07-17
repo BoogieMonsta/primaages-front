@@ -1,10 +1,12 @@
 <section id="gallery-container">
-  <!-- TODO: ngFor to display all images by default -->
-  <div *ngFor="let image of images" class="img-wrapper">
-    <img
-      src="{{ image.image }}"
-      width="{{ image.metadata.width / 3 }}"
-      alt="food-photo"
-    />
+  <div *ngFor="let photo of photos" class="img-wrapper">
+    <!-- FIXME: child route not working -->
+    <a [routerLink]="['/photo/' + photo.id]">
+      <img
+        src="{{ photo.image }}"
+        width="{{ photo.metadata.width / 3 }}"
+        alt="food-photo"
+      />
+    </a>
   </div>
 </section>

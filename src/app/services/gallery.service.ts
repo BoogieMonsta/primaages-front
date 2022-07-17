@@ -13,7 +13,7 @@ export class GalleryService {
 
   constructor(private httpClient: HttpClient, private toastr: ToastrService) {}
 
-  public createImage(input: Photo): Observable<boolean> {
+  public createPhoto(input: Photo): Observable<boolean> {
     return new Observable<boolean>((observer) => {
       this.httpClient
         .post(environment.baseUrl + this.IMAGES_API_URL, input)
@@ -32,7 +32,7 @@ export class GalleryService {
     });
   }
 
-  public getImages(): Observable<Photo[]> {
+  public getPhotos(): Observable<Photo[]> {
     return new Observable<Photo[]>((observer) => {
       this.httpClient.get(environment.baseUrl + this.IMAGES_API_URL).subscribe({
         next: (res) => {
@@ -41,6 +41,21 @@ export class GalleryService {
         },
         error: (error) => {
           this.toastr.error('Error: could not load images.');
+          observer.complete();
+        },
+      });
+    });
+  }
+
+  public getPhotoById(id: string): Observable<Photo> {
+    return new Observable<Photo>((observer) => {
+      this.httpClient.get(environment.baseUrl + this.IMAGES_API_URL + '/' + id).subscribe({
+        next: (res) => {
+          observer.next(res as Photo);
+          observer.complete();
+        },
+        error: (error) => {
+          this.toastr.error('Error: could not load image.');
           observer.complete();
         },
       });
