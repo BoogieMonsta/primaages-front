@@ -16,6 +16,7 @@ import { TitleComponent } from './components/title/title.component';
 import { RegisterComponent } from './components/register/register.component';
 import { SinglePhotoComponent } from './components/single-photo/single-photo.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { EditPhotoComponent } from './components/edit-photo/edit-photo.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { LogoutComponent } from './components/logout/logout.component';
     RegisterComponent,
     SinglePhotoComponent,
     LogoutComponent,
+    EditPhotoComponent,
   ],
   imports: [
     BrowserModule,

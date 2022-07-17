@@ -12,15 +12,16 @@ export class SinglePhotoComponent implements OnInit {
   photo!: Photo; // definitely assign type
   isLoaded = false;
   credits!: string;
+  id!: string;
   constructor(
     private route: ActivatedRoute,
     private galleryService: GalleryService
   ) {}
 
   ngOnInit(): void {
-    let id = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params['id'];
 
-    this.galleryService.getPhotoById(id).subscribe({
+    this.galleryService.getPhotoById(this.id).subscribe({
       next: (res) => {
         this.photo = res as Photo;
         this.isLoaded = true;

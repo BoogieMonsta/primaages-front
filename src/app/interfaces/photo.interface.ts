@@ -1,5 +1,5 @@
 export interface Photo {
-  id: string;
+  id?: string;
   image: string;
   metadata: {
     width: number;

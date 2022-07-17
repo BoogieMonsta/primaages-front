@@ -1,0 +1,11 @@
+<form [formGroup]="editPhotoForm" (ngSubmit)="editPhoto(id)">
+  <h3>edit the description</h3>
+  <label for="new-description-input">photography... </label>
+  <input
+    id="new-description-input"
+    type="text"
+    placeholder="by mitch buchannon"
+    formControlName="description"
+  />
+  <input type="submit" value="do it" id="submit-btn" />
+</form>

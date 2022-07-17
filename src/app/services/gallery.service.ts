@@ -49,16 +49,30 @@ export class GalleryService {
 
   public getPhotoById(id: string): Observable<Photo> {
     return new Observable<Photo>((observer) => {
-      this.httpClient.get(environment.baseUrl + this.IMAGES_API_URL + '/' + id).subscribe({
-        next: (res) => {
-          observer.next(res as Photo);
-          observer.complete();
-        },
-        error: (error) => {
-          this.toastr.error('Error: could not load image.');
-          observer.complete();
-        },
-      });
+      this.httpClient
+        .get(environment.baseUrl + this.IMAGES_API_URL + '/' + id)
+        .subscribe({
+          next: (res) => {
+            observer.next(res as Photo);
+            observer.complete();
+          },
+          error: (error) => {
+            this.toastr.error('Error: could not load image.');
+            observer.complete();
+          },
+        });
+    });
+  }
+
+  public editPhoto(id: string, img: Photo): Observable<string> {
+    return new Observable<string>((observer) => {
+      this.httpClient
+        .put(environment.baseUrl + this.IMAGES_API_URL + '/' + id, img)
+        .subscribe({
+          next: (res: any) => {
+            observer.next(res.id);
+          },
+        });
     });
   }
 }
