@@ -16,21 +16,21 @@ export class AuthService {
 
   public login(input: User): Observable<boolean> {
     return new Observable<boolean>((observer) => {
-      this.httpClient.get(environment.baseUrl + this.AUTH_URL).subscribe({
-        next: (res) => {
-          if (input === res) {
+      this.httpClient
+        .post(environment.baseUrl + this.AUTH_URL, input)
+        .subscribe({
+          next: (res) => {
             this.isLoggedIn = true;
-            this.toastr.success('Login successful :)');
+            this.toastr.success('Welcome back :)');
             observer.next(true);
             observer.complete();
-          }
-        },
-        error: (error) => {
-          this.toastr.error('Error: login unsuccessful.');
-          observer.next(true);
-          observer.complete();
-        },
-      });
+          },
+          error: (error) => {
+            this.toastr.error('Error: login unsuccessful.');
+            observer.next(false);
+            observer.complete();
+          },
+        });
     });
   }
 

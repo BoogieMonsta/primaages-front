@@ -37,10 +37,9 @@ export class LoginComponent implements OnInit {
     }
     this.authService.login(this.loginForm.value).subscribe({
       next: (res) => {
-        this.router.navigateByUrl('/gallery');
-      },
-      error: (error) => {
-        console.error('login unsuccessful');
+        if (res) {
+          this.router.navigateByUrl('/gallery'); // if login Obs returns "true", go to gallery
+        }
       },
     });
   }
