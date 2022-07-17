@@ -1,1 +1,10 @@
-<button id="logout-btn" [routerLink]="['/']" (click)="logout()">✌️</button>
+<button
+  (mouseover)="showTooltip = true"
+  (mouseout)="showTooltip = false"
+  id="logout-btn"
+  [routerLink]="['/']"
+  (click)="logout()"
+>
+  ✌️
+</button>
+<span *ngIf="showTooltip" id="tooltip">log out</span>

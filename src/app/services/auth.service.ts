@@ -45,7 +45,7 @@ export class AuthService {
           observer.complete();
         },
         error: (error) => {
-          this.toastr.error('An error occurred while logging you out.');
+          // this.toastr.error('An error occurred while logging you out.'); // FIXME disabled for demo
           observer.error(false);
           observer.complete();
         },
