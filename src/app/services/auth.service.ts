@@ -10,7 +10,6 @@ import { User } from '../interfaces/user.interface';
 })
 export class AuthService {
   AUTH_URL = '/sessions';
-  isLoggedIn = false;
 
   constructor(private httpClient: HttpClient, private toastr: ToastrService) {}
 
@@ -20,7 +19,6 @@ export class AuthService {
         .post(environment.baseUrl + this.AUTH_URL, input)
         .subscribe({
           next: (res) => {
-            this.isLoggedIn = true;
             this.toastr.success('Welcome back :)');
             observer.next(true);
             observer.complete();
@@ -31,6 +29,10 @@ export class AuthService {
             observer.complete();
           },
         });
+      // WIP
+      // .subscribe((res: any) => {
+      //   AuthInterceptor.accessToken = res.accessToken;
+      // });
     });
   }
 
@@ -38,17 +40,32 @@ export class AuthService {
     return new Observable<boolean>((observer) => {
       this.httpClient.get(environment.baseUrl + this.AUTH_URL).subscribe({
         next: (res) => {
-          this.isLoggedIn = false;
           this.toastr.success('You have been logged out');
           observer.next(true);
           observer.complete();
         },
         error: (error) => {
-          this.toastr.error('There was a problem while logging you out.');
+          this.toastr.error('An error occurred while logging you out.');
           observer.error(false);
           observer.complete();
         },
       });
     });
   }
+
+  // WIP
+  // public isLoggedIn() {
+  //   return new Observable<boolean>((observer) => {
+  //     this.httpClient.get(environment.baseUrl + this.AUTH_URL).subscribe({
+  //       next: (res) => {
+  //         observer.next(true);
+  //         observer.complete();
+  //       },
+  //       error: (error) => {
+  //         observer.error(false);
+  //         observer.complete();
+  //       },
+  //     });
+  //   });
+  // }
 }

@@ -8,16 +8,17 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./logout.component.scss'],
 })
 export class LogoutComponent implements OnInit {
+  isLoggedIn = false;
   constructor(private authService: AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    // this.authService.isLoggedIn().subscribe(); // WIP
+  }
 
   logout(): void {
     this.authService.logOut().subscribe({
       next: (res) => {
-        if (res) {
-          // TODO: complete
-        }
+        // TODO complete
       },
     });
   }

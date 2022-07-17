@@ -30,7 +30,6 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    this.isSubmitted = true;
     if (this.registerForm.invalid) {
       console.log('the data entered is invalid.');
       return;
@@ -38,6 +37,7 @@ export class RegisterComponent implements OnInit {
     this.regService.register(this.registerForm.value).subscribe({
       next: (res) => {
         this.router.navigateByUrl('/gallery');
+        this.isSubmitted = true;
       },
     });
   }
